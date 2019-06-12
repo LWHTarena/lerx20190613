@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lerx.entities">
+	<class name="Album" table="album" dynamic-update="true">
+		<id name="id" column="id">
+			<generator class="native" />
+		</id>
+		
+		<property name="name" />
+		<property name="description" type="text" />
+		<property name="mail" />
+		<property name="logo" />
+		<property name="banner" />
+		<property name="uuid" />
+		<property name="logoSmall" />
+		<property name="logo8831" />
+		<property name="bannerSmall" />
+		<property name="status" />
+		<property name="open" />
+		<property name="createTime" />
+		<property name="lastEditTime" />
+		<property name="lastViewTime" />
+		<property name="lastViewIP" />
+		<property name="lastModifyTime" />
+		<property name="expiredDate" />
+				
+
+		<many-to-one name="genre" column="genreID" lazy="false" cascade="none" fetch="select" 
+			outer-join="true" class="AlbumGenre" />
+		<many-to-one name="vbook" column="vbookID" lazy="false" cascade="none" fetch="select" 
+			outer-join="true" class="com.lerx.entities.VisitorsBook" />
+		<many-to-one name="poll" column="pollID" lazy="false" cascade="none" fetch="select" 
+			outer-join="true" class="com.lerx.entities.Poll" />
+		<many-to-one name="leader" column="leaderUID" lazy="false" cascade="none" fetch="select" 
+			outer-join="true" class="com.lerx.entities.User" />
+		<many-to-one name="passer" column="passerUID" lazy="false" cascade="none" fetch="select" 
+			outer-join="true" class="com.lerx.entities.User" />
+			
+		<many-to-one name="templet" column="templetID" lazy="false" cascade="none" fetch="select" 
+			outer-join="true" class="TempletAlbumMain" />	
+        
+	</class>
+</hibernate-mapping>

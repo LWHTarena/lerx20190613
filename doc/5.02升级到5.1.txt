@@ -1,0 +1,2 @@
+﻿1.停止服务
+2.将数据库表 templet_portal_sub_el 改名为 templet_sub_el

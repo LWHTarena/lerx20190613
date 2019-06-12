@@ -1,0 +1,1 @@
+<a href="javascript:poll('{$tag:contextPath$}' , {$tag:poll_id$}, 1);"> <i class="layui-icon">&#xe6c6;</i> (<span id="poll_{$tag:poll_id$}_agrees">{$tag:poll_agrees$}</span>)</a>

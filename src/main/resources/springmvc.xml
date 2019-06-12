@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.3.xsd">
+
+
+	<!-- 配置自动扫描的包 -->
+	<context:component-scan
+		base-package="com.lerx.handlers.**">
+	</context:component-scan>
+
+	<!-- Token -->
+	
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+	<mvc:annotation-driven>
+		<mvc:message-converters
+			register-defaults="true">
+			<bean
+				class="org.springframework.http.converter.StringHttpMessageConverter">
+				<property name="supportedMediaTypes"
+					value="text/html;charset=UTF-8" />
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+	<bean id="aspect" class="com.lerx.aop.TokenAspect" />
+	<!-- TokenAspect.class中的关键配置 1.@Around(value="execution(* *..handlers..*.*(..)) 
+		&& @annotation(annotation)") 2.return "warn/resubmit"; -->
+
+	<mvc:default-servlet-handler />
+
+	<task:annotation-driven /> <!-- 定时器开关 -->
+
+	<!-- 目录映射 -->
+	<mvc:resources location="/scripts/" mapping="/scripts/**" />
+	<mvc:resources location="/images/" mapping="/images/**" />
+	<mvc:resources location="/temp/" mapping="/temp/**" />
+	<mvc:resources location="/templates/"
+		mapping="/templates/**" />
+	<mvc:resources location="/html/" mapping="/html/**" />
+	<!-- 配置视图解析器 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/WEB-INF/views/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+	<mvc:view-controller path="/" view-name="index" />
+	<mvc:view-controller path="/forbid"
+		view-name="jsp/result/forbid" />
+	<mvc:view-controller path="/admin/login"
+		view-name="jsp/admin/login" />
+	<!-- <mvc:view-controller path="/inp/**" view-name="inp" /> <mvc:view-controller 
+		path="/result" view-name="result" /> -->
+	<!--配置国际化资源文件 -->
+	<bean id="messageSource" name="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames"
+			value="i18n_config,i18n_product,i18n_version,i18n_security,i18n_message,i18n_tmp"></property>
+	</bean>
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="UTF-8" />
+		<property name="maxUploadSize" value="1024000000"></property>
+
+		<property name="uploadTempDir" value="${appBase:temp}" />
+		<!-- <property name="uploadTempDir" value="${java.io.tmpdir}" /> -->
+
+	</bean>
+
+	<!-- 跨域 -->
+	<bean id="cors" class="com.lerx.sys.obj.CorsConfigurerAdapter" />
+
+	<import resource="transaction.xml" />
+	<import resource="beans.xml" />
+
+	<bean id="htmlCreateTask" class="com.lerx.handlers.TimerHandler"></bean>
+	<task:scheduled-tasks>
+		<!-- 这里表示的是每隔半小时执行一次 1000 * 60 * 30 = 1800000 -->
+		<task:scheduled ref="htmlCreateTask" initial-delay="5000"
+			fixed-rate="1800000" method="htmlCreateUpdate" />
+	</task:scheduled-tasks>
+</beans>

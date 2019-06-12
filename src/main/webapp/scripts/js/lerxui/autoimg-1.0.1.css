@@ -1,0 +1,73 @@
+.rootDiv ul li {
+	background-image: none;
+	padding-left: 0;
+}
+
+.rootDiv a {
+	text-decoration: none;
+	
+}
+
+
+.div_footer_luara_lerx20151222 {
+	}
+
+
+
+
+.div_footer_luara_lerx20160324 {
+	position:relative;
+	left:0px;
+	top:-26px;
+	background:rgba(52, 52, 52, 0.6) none repeat scroll 0 0 !important;
+}
+
+.ultxt_lerx20151222 {
+	float: left;
+	margin: 4px 0 0 5px;
+	font-size: 12px;
+	font-family: "宋体", Arial, Helvetica, sans-serif;
+}
+
+.ulnum_lerx20151222 {
+	
+	float: right;
+	margin: 4px 5px 0 0;
+	font-size: 12px;
+	font-family: "宋体", Arial, Helvetica, sans-serif;
+}
+
+.li_top_image_lerx20151222 {
+	display: none;
+	position: absolute;
+	list-style: none;
+}
+
+.li_footer_title_lerx20151222 {
+	
+	display: inline;
+	line-height: 18px;
+}
+
+.li_footer_number_lerx20151222 {
+	float: left;
+	display: inline-block;
+	background-color: #6f6f6f;
+	width: 18px;
+	line-height: 18px;
+	text-align: center;
+}
+
+.li_footer_number_span_lerx20151222 {
+	margin-left: 1px;
+}
+
+.li_txt_striking_lerx20151222 {
+	font-family: arial;
+	font-style: normal;
+	font-weight: bold;
+}
+
+.li_num_striking_lerx20151222 {
+	background-color: #d6d6d6;
+}

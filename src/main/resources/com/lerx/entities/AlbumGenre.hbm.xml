@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lerx.entities">
+	<class name="AlbumGenre" table="album_genre" dynamic-update="true">
+		<id name="id" column="id">
+			<generator class="native" />
+		</id>
+		
+		<property name="name" not-null="true" />
+		<property name="description" />
+		<property name="status" />
+		<property name="open" />
+		<property name="free" />
+		<property name="comm" />
+		<property name="poll" />
+		<property name="quota" />
+		<property name="createTime" />
+		<property name="markLogoUrl" />
+		<property name="folder" />
+		<property name="agreement" type="text" />
+		
+
+		<many-to-one name="creator" column="userID" lazy="false" cascade="none" fetch="select" 
+			outer-join="true" class="com.lerx.entities.User" />
+		<many-to-one name="templet" column="templetID" lazy="false" cascade="none" fetch="select" 
+			outer-join="true" class="TempletAlbumGenreMain" />	
+			 
+        
+	</class>
+</hibernate-mapping>

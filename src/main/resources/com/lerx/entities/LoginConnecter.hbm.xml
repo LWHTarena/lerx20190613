@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lerx.entities">
+	<class name="LoginConnecter" table="user_login_connecter" dynamic-update="true">
+	
+		<id name="id" column="id">
+			<generator class="native" />
+		</id>
+		<property name="openIDAtQQ" length="64" />
+		<property name="openIDAtWeChat" length="64" />
+		<property name="openIDAtWeibo" length="64" />
+		<property name="createTimstamp" />
+			
+		<many-to-one name="user" lazy="false" column="uid" cascade="none" fetch="select" 
+			outer-join="true" class="User" />
+		
+	</class>
+</hibernate-mapping>

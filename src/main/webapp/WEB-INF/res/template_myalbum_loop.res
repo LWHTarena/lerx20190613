@@ -1,0 +1,1 @@
+<li><a href="{$tag:contextPath$}/album/{$tag:id$}">{$tag:name$}</a></li>

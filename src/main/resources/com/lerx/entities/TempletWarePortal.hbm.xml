@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lerx.entities">
+	<class name="TempletWarePortal" table="templet_ware_portal" dynamic-update="true">
+		<id name="id" column="id">
+			<generator class="native" />
+		</id>
+		
+
+		<many-to-one name="templet" column="templetID" lazy="false" cascade="none" fetch="select" 
+			outer-join="true" class="TempletPortalMain" />
+		<many-to-one name="vbook" column="vbookID" lazy="false" cascade="none" fetch="select" 
+			outer-join="true" class="com.lerx.entities.VisitorsBook" />
+		<many-to-one name="poll" column="pollID" lazy="false" cascade="none" fetch="select" 
+			outer-join="true" class="com.lerx.entities.Poll" />
+		<many-to-one name="cb" column="cbID" lazy="false" cascade="none" fetch="select" 
+			outer-join="true" class="com.lerx.entities.CommentBridge" />
+        
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,12 @@
+
+1.最好将lib中的库文件删除后重新复制进去。
+
+2.复制WEB-INF/res下的htmlTemplet_forward.res
+
+3.将WEB-INF/views/jsp中的文件覆盖
+
+4.需在数据库管理中执行
+
+UPDATE `article_group` SET `coerce`=0
+
+5，请执行 http://www.yourdomain.com/action_update/start 修复数据

@@ -1,0 +1,17 @@
+自己编写的一个jar文件，每次添加单个jar到maven本地仓库的操作如下：
+ 1.建立一个新的文件夹，将jar文件存放在该文件夹下。   注意文件夹下最好只存放该文件。 
+ 2.在该文件夹下建立一个pom.xml文件，在pom文件中定义其maven坐标。 
+ 3.在cmd窗口中执行以下命令：  
+  mvn install:install-file -Dfile=<path-to-file> -DgroupId=<group-id> -DartifactId=<artifact-id> -Dversion=<version> -Dpackaging=<packaging> 
+  
+mvn install:install-file  -Dfile=D:/jar/xxx.jar  -DgroupId=xxx.xxx  -DartifactId=xxx -Dversion=x.x -Dpackaging=jar
+
+
+例子：
+mvn install:install-file  -Dfile=E:/Maven/private_lib/lerx-util-1.2.4.jar -DgroupId=com.lerx  -DartifactId=lerx-util -Dversion=1.2.4 -Dpackaging=jar
+mvn install:install-file  -Dfile=E:/Maven/private_lib/ik-analyzer-solr6.3.jar -DgroupId=com.analyzer  -DartifactId=ik-analyzer-solr -Dversion=6.3 -Dpackaging=jar
+mvn install:install-file  -Dfile=E:/Maven/private_lib/Sdk4J.jar -DgroupId=com.qq  -DartifactId=sdk4J -Dversion=1.0.0 -Dpackaging=jar
+mvn install:install-file  -Dfile=E:/Maven/private_lib/weibosdk-3.1.1.jar -DgroupId=com.weibo  -DartifactId=weibosdk -Dversion=3.1.1 -Dpackaging=jar
+mvn install:install-file  -Dfile=E:/Maven/private_lib/wechatsdk-1.0.jar -DgroupId=com.wechat  -DartifactId=wechatsdk -Dversion=1.0.0 -Dpackaging=jar
+mvn install:install-file  -Dfile=E:/Maven/private_lib/gson-2.6.2.jar -DgroupId=com.google  -DartifactId=gson -Dversion=2.6.2 -Dpackaging=jar
+mvn install:install-file  -Dfile=E:/Maven/private_lib/elasticsearch-launchers-6.2.4.jar -DgroupId=com.launchers  -DartifactId=elasticsearch-launchers -Dversion=6.2.4 -Dpackaging=jar

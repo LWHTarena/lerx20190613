@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Application context definition for PetClinic on Hibernate. -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+			http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+	<bean id="baseDaoImpl" name="baseDaoImpl" class="com.lerx.dao.impl.BaseDaoImpl">
+		<property name="sessionFactory" ref="sf"></property>
+	</bean>
+	
+	<bean id="portalDaoImpl" name="portalDaoImpl" class="com.lerx.dao.impl.PortalDaoImpl">
+		<property name="sessionFactory" ref="sf"></property>
+	</bean>
+
+	<bean id="adminDaoImpl" name="adminDaoImpl" class="com.lerx.dao.impl.AdminDaoImpl">
+		<property name="sessionFactory" ref="sf"></property>
+	</bean>
+
+	<bean id="roleDaoImpl" name="roleDaoImpl" class="com.lerx.dao.impl.RoleDaoImpl">
+		<property name="sessionFactory" ref="sf"></property>
+	</bean>
+
+	<bean id="userDaoImpl" name="userDaoImpl" class="com.lerx.dao.impl.UserDaoImpl">
+		<property name="sessionFactory" ref="sf"></property>
+	</bean>
+	
+	<bean id="loginConnecterDaoImpl" name="loginConnecterDaoImpl" class="com.lerx.dao.impl.LoginConnecterDaoImpl">
+		<property name="sessionFactory" ref="sf"></property>
+	</bean>
+	
+	<bean id="userArtsCountDaoImp" name="userArtsCountDaoImp" class="com.lerx.dao.impl.UserArtsCountDaoImp">
+		<property name="sessionFactory" ref="sf"></property>
+	</bean>
+
+	<bean id="groupDaoImpl" name="groupDaoImpl" class="com.lerx.dao.impl.GroupDaoImpl">
+		<property name="sessionFactory" ref="sf"></property>
+	</bean>
+
+	<bean id="articleDaoImpl" name="articleDaoImpl" class="com.lerx.dao.impl.ArticleDaoImpl">
+		<property name="sessionFactory" ref="sf"></property>
+	</bean>
+	
+	<bean id="albumGenreDaoImpl" name="albumGenreDaoImpl" class="com.lerx.dao.impl.AlbumGenreDaoImpl">
+		<property name="sessionFactory" ref="sf"></property>
+	</bean>
+	
+	<bean id="albumDaoImpl" name="albumDaoImpl" class="com.lerx.dao.impl.AlbumDaoImpl">
+		<property name="sessionFactory" ref="sf"></property>
+	</bean>
+
+	<bean id="templetPortalMainDaoImpl" name="templetPortalMainDaoImpl"
+		class="com.lerx.dao.impl.TempletPortalMainDaoImpl">
+		<property name="sessionFactory" ref="sf"></property>
+	</bean>
+	
+	<bean id="templetAlbumMainDaoImpl" name="templetAlbumMainDaoImpl"
+		class="com.lerx.dao.impl.TempletAlbumMainDaoImpl">
+		<property name="sessionFactory" ref="sf"></property>
+	</bean>
+	
+	<bean id="templetWarePortalDaoImpl" name="templetWarePortalDaoImpl"
+		class="com.lerx.dao.impl.TempletWarePortalDaoImpl">
+		<property name="sessionFactory" ref="sf"></property>
+	</bean>
+	
+	<bean id="templetAlbumGenreMainDaoImpl" name="templetAlbumGenreMainDaoImpl"
+		class="com.lerx.dao.impl.TempletAlbumGenreMainDaoImpl">
+		<property name="sessionFactory" ref="sf"></property>
+	</bean>
+	
+	<bean id="templetDownCodeDaoImpl" name="templetDownCodeDaoImpl"
+		class="com.lerx.dao.impl.TempletDownCodeDaoImpl">
+		<property name="sessionFactory" ref="sf"></property>
+	</bean>
+
+	<bean id="uploadedFileDaoImpl" name="uploadedFileDaoImpl"
+		class="com.lerx.dao.impl.UploadedFileDaoImpl">
+		<property name="sessionFactory" ref="sf"></property>
+	</bean>
+	
+	<bean id="articleAttaDaoImpl" name="articleAttaDaoImpl"
+		class="com.lerx.dao.impl.ArticleAttaDaoImpl">
+		<property name="sessionFactory" ref="sf"></property>
+	</bean>
+
+	<bean id="visitorIPRecordDaoImpl" name="visitorIPRecordDaoImpl"
+		class="com.lerx.dao.impl.VisitorIPRecordDaoImpl">
+		<property name="sessionFactory" ref="sf"></property>
+	</bean>
+
+	<bean id="visitorsBookDaoImpl" name="visitorsBookDaoImpl"
+		class="com.lerx.dao.impl.VisitorsBookDaoImpl">
+		<property name="sessionFactory" ref="sf"></property>
+	</bean>
+	
+	<bean id="visitArchivesDaoImpl" name="visitArchivesDaoImpl"
+		class="com.lerx.dao.impl.VisitArchivesDaoImpl">
+		<property name="sessionFactory" ref="sf"></property>
+	</bean>
+	
+	<bean id="visitorCountInPeriodDaoImpl" name="visitorCountInPeriodDaoImpl"
+		class="com.lerx.dao.impl.VisitorCountInPeriodDaoImpl">
+		<property name="sessionFactory" ref="sf"></property>
+	</bean>
+	
+	<bean id="pollDaoImpl" name="pollDaoImpl"
+		class="com.lerx.dao.impl.PollDaoImpl">
+		<property name="sessionFactory" ref="sf"></property>
+	</bean>
+	
+	<bean id="pollIPRecordDaoImpl" name="pollIPRecordDaoImpl"
+		class="com.lerx.dao.impl.PollIPRecordDaoImpl">
+		<property name="sessionFactory" ref="sf"></property>
+	</bean>
+	
+	<bean id="htmlFileStaticDaoImpl" name="htmlFileStaticDaoImpl"
+		class="com.lerx.dao.impl.HtmlFileStaticDaoImpl">
+		<property name="sessionFactory" ref="sf"></property>
+	</bean>
+	
+	<bean id="commentBridgeDaoImpl" name="commentBridgeDaoImpl"
+		class="com.lerx.dao.impl.CommentBridgeDaoImpl">
+		<property name="sessionFactory" ref="sf"></property>
+	</bean>
+	
+	<bean id="commentThreadDaoImpl" name="commentThreadDaoImpl"
+		class="com.lerx.dao.impl.CommentThreadDaoImpl">
+		<property name="sessionFactory" ref="sf"></property>
+	</bean>
+	
+	
+
+</beans>

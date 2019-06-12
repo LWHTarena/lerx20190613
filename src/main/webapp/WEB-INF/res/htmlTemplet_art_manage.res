@@ -1,0 +1,1 @@
+<span class="pull-right"><a href="javascript:del({$tag:id$},'{$tag:subject$}');">删除</a></span><span class="pull-right"><a href="javascript:edit({$tag:id$},'{$tag:subject$}');">编辑</a></span>

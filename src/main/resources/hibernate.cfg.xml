@@ -1,0 +1,90 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="show_sql">false</property>
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		
+		<!-- 缓存配置 -->
+		<!--  
+		<property name="hibernate,cache.use_query_cache">true</property>
+		<property name="cache.use_second_level_cache">true</property>
+		<property name="cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
+		-->
+		
+		<!-- 使用二级缓存 -->
+        <!-- <property name="hibernate.cache.use_second_level_cache">true</property> -->
+        <!--设置缓存的类型，设置缓存的提供商 -->
+        <!-- <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory</property>  -->
+		
+		
+		<!-- 一次读的数据库记录数 -->
+		<property name="jdbc.fetch_size">50</property>
+		<!-- 设定对数据库进行批量删除 -->
+		<property name="jdbc.batch_size">30</property> 
+		
+		<property name="hbm2ddl.auto">update</property>
+		
+		
+		<!-- 全文搜索设置 -->
+		<property name="hibernate.search.default.directory_provider">filesystem</property> 
+		<property name="hibernate.search.default.indexBase">var/indexes</property>
+		
+		<!-- 站点信息 -->
+		<mapping resource="com/lerx/entities/Portal.hbm.xml" />
+		
+		<!-- 用户及角色 -->
+		<mapping resource="com/lerx/entities/Admin.hbm.xml" />
+		<mapping resource="com/lerx/entities/Role.hbm.xml" />
+		<mapping resource="com/lerx/entities/User.hbm.xml" />
+		<mapping resource="com/lerx/entities/UserArtsCount.hbm.xml" />
+		<mapping resource="com/lerx/entities/LoginConnecter.hbm.xml" />
+		
+		
+		<!-- 文章 -->
+		<mapping resource="com/lerx/entities/ArticleGroup.hbm.xml" />
+		<mapping resource="com/lerx/entities/Article.hbm.xml" />
+		<mapping resource="com/lerx/entities/ArticleAtta.hbm.xml" />
+		
+		<!-- 专辑 -->
+		<mapping resource="com/lerx/entities/AlbumGenre.hbm.xml" />
+		<mapping resource="com/lerx/entities/Album.hbm.xml" />
+		
+		<!-- 模板 -->
+		
+		<mapping resource="com/lerx/entities/TempletPortalMain.hbm.xml" />
+		<mapping resource="com/lerx/entities/TempletAlbumGenreMain.hbm.xml" />
+		<mapping resource="com/lerx/entities/TempletAlbumMain.hbm.xml" />
+		
+		<mapping resource="com/lerx/entities/TempletSubElement.hbm.xml" />
+		<mapping resource="com/lerx/entities/TempletComment.hbm.xml" />
+		
+		<mapping resource="com/lerx/entities/TempletDownCode.hbm.xml" />
+		
+		<mapping resource="com/lerx/entities/TempletWarePortal.hbm.xml" />
+		
+		<!-- 访客簿及ip记录 -->
+		<mapping resource="com/lerx/entities/VisitorsBook.hbm.xml" />
+		<mapping resource="com/lerx/entities/VisitorIPRecord.hbm.xml" />
+		<mapping resource="com/lerx/entities/VisitArchives.hbm.xml" />
+		<mapping resource="com/lerx/entities/VisitorCountInPeriod.hbm.xml" />
+		
+		<!-- 民意调查 -->
+		<mapping resource="com/lerx/entities/Poll.hbm.xml" />
+		<mapping resource="com/lerx/entities/PollIPRecord.hbm.xml" />
+		
+		<!-- 评论 -->
+		<mapping resource="com/lerx/entities/CommentBridge.hbm.xml" />
+		<mapping resource="com/lerx/entities/CommentThread.hbm.xml" />
+		
+		<!-- 上传的文章 -->
+		<mapping resource="com/lerx/entities/UploadedFile.hbm.xml" />
+		
+		<!-- 静态文件库 -->
+		<mapping resource="com/lerx/entities/HtmlFileStatic.hbm.xml" />
+		
+	</session-factory>
+	
+</hibernate-configuration>
