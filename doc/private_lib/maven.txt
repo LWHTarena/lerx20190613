@@ -15,3 +15,4 @@ mvn install:install-file  -Dfile=E:/Maven/private_lib/weibosdk-3.1.1.jar -Dgroup
 mvn install:install-file  -Dfile=E:/Maven/private_lib/wechatsdk-1.0.jar -DgroupId=com.wechat  -DartifactId=wechatsdk -Dversion=1.0.0 -Dpackaging=jar
 mvn install:install-file  -Dfile=E:/Maven/private_lib/gson-2.6.2.jar -DgroupId=com.google  -DartifactId=gson -Dversion=2.6.2 -Dpackaging=jar
 mvn install:install-file  -Dfile=E:/Maven/private_lib/elasticsearch-launchers-6.2.4.jar -DgroupId=com.launchers  -DartifactId=elasticsearch-launchers -Dversion=6.2.4 -Dpackaging=jar
+mvn install:install-file  -Dfile=E:/Maven/private_lib/jboss-common-jdbc-wrapper.jar -DgroupId=com.jboss -DartifactId=jboss-common-jdbc-wrapper -Dversion=1.0.0 -Dpackaging=jar
